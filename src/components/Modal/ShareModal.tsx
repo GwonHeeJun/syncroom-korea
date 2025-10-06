@@ -14,7 +14,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Link from "../../resource/img/icon/link.svg?react";
 
 function ShareModal() {
-  const { roomName, status } = useSelector((state: RootState) => state.modal);
+  const { roomName, roomId, status } = useSelector((state: RootState) => state.modal);
 
   const { input: password } = useInput("");
   const isPrivate = status === Status.PRIVATE;
@@ -24,6 +24,7 @@ function ShareModal() {
 
   const shareLink: string = encodeShareLink({
     roomName: roomName,
+    roomId: roomId,
     password: checked ? password.value : undefined,
   });
   const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) =>

@@ -56,6 +56,7 @@ function RoomTile({ room, size }: RoomTileProps) {
       <MemberDisplay members={room.members} />
       <Buttons
         name={room.name}
+        roomId={room.roomId}
         isPublic={!room.needPasswd}
         isFull={isFull}
         changeSubscription={changeSubscribeStatus}

@@ -13,6 +13,7 @@ import { Status } from "@/common/classes/properties";
 
 interface ButtonsProps {
   name: string;
+  roomId: string;
   isPublic: boolean;
   isFull: boolean;
   changeSubscription: () => void;
@@ -21,6 +22,7 @@ interface ButtonsProps {
 
 function Buttons({
   name,
+  roomId,
   isPublic,
   isFull,
   changeSubscription,
@@ -29,13 +31,14 @@ function Buttons({
   const dispatch = useDispatch();
   const join = isPublic
     ? (temp: boolean) => {
-        joinRoom(name, "", temp);
+        joinRoom(name, "", temp, roomId);
       }
     : (temp: boolean) => {
         dispatch(
           openModal({
             modalClass: ModalClass.PASSWORD,
             roomName: name,
+            roomId,
             temp,
           }),
         );
@@ -45,6 +48,7 @@ function Buttons({
       openModal({
         modalClass: ModalClass.SHARE,
         roomName: name,
+        roomId,
         status: isPublic ? Status.PUBLIC : Status.PRIVATE,
       }),
     );

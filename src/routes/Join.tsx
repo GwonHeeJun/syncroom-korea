@@ -49,15 +49,15 @@ function JoinInfo({ search }: JoinInfoProps) {
   );
 
   try {
-    const { roomName, password } = decodeShareLink(search.slice(1));
-    console.log({ roomName, password });
+    const { roomName, roomId, password } = decodeShareLink(search.slice(1));
+    console.log({ roomName, roomId, password });
     if (password !== undefined) {
-      joinRoom(roomName, password, false);
+      joinRoom(roomName, password, false, roomId);
       return (
         <>
           <div className="title">{roomName} 방 참가 중…</div>
           <div className="prompt">
-            <button onClick={() => joinRoom(roomName, password, false)}>
+            <button onClick={() => joinRoom(roomName, password, false, roomId)}>
               <span>참가하기</span>
             </button>
           </div>
@@ -78,12 +78,12 @@ function JoinInfo({ search }: JoinInfoProps) {
               {...inputPassword}
               onKeyPress={e => {
                 if (e.key === "Enter")
-                  joinRoom(roomName, inputPassword.value, false);
+                  joinRoom(roomName, inputPassword.value, false, roomId);
               }}
             />
             <button
               className="password"
-              onClick={() => joinRoom(roomName, inputPassword.value, false)}
+              onClick={() => joinRoom(roomName, inputPassword.value, false, roomId)}
             >
               <span>참가하기</span>
             </button>

@@ -10,14 +10,14 @@ import useInput from "../../common/hooks/useInput";
 import Lock from "../../resource/img/icon/lock.svg?react";
 
 function PasswordModal() {
-  const { roomName, temp } = useSelector((state: RootState) => state.modal);
+  const { roomName, roomId, temp } = useSelector((state: RootState) => state.modal);
   const dispatch = useDispatch();
   const { input: password } = useInput("");
 
   const onClick = useCallback(() => {
-    joinRoom(roomName, password.value, temp);
+    joinRoom(roomName, password.value, temp, roomId);
     dispatch(closeModal());
-  }, [dispatch, password.value, roomName, temp]);
+  }, [dispatch, password.value, roomName, roomId, temp]);
 
   const onKeyPress = useCallback(
     e => {

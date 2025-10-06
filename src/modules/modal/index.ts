@@ -7,12 +7,14 @@ const CLOSE = "modal/CLOSE" as const;
 type openModalProps = {
   modalClass: ModalClassType;
   roomName: string;
+  roomId?: string;
   status?: StatusType;
   temp?: boolean;
 };
 export const openModal = ({
   modalClass,
   roomName,
+  roomId = "",
   status = Status.PRIVATE,
   temp = true,
 }: openModalProps) => ({
@@ -20,6 +22,7 @@ export const openModal = ({
   payload: {
     modalClass,
     roomName,
+    roomId,
     status,
     temp,
   },
@@ -33,6 +36,7 @@ type ModalAction = ReturnType<typeof openModal> | ReturnType<typeof closeModal>;
 type ModalState = {
   modalClass: ModalClassType;
   roomName: string;
+  roomId: string;
   status: StatusType;
   temp: boolean;
 };
@@ -40,6 +44,7 @@ type ModalState = {
 const initialState: ModalState = {
   modalClass: null,
   roomName: "",
+  roomId: "",
   status: Status.PRIVATE,
   temp: false,
 };
