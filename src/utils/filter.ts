@@ -8,15 +8,19 @@ export const filterRooms = (
   rooms
     .filter(
       room =>
-        searchQuery(room.roomName, query) ||
-        searchQuery(room.roomDesc, query) ||
+        searchQuery(room.name, query) ||
+        searchQuery(room.description, query) ||
         searchQuery(
           room.members.map(member => member.nickname),
           query,
         ) ||
         searchQuery(room.tags, query),
     )
-    .filter(room => notSet(language) || room.language === language)
+    .filter(
+      room =>
+        notSet(language) ||
+        room.members.map(i => i.idProvider).includes(language),
+    )
     .filter(room => notSet(instrument) || doesNotIncludeInst(room, instrument))
     .filter(room => notSet(password) || password === room.needPasswd);
 

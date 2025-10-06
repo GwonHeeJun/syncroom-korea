@@ -1,4 +1,4 @@
-export type Language = "jp" | "kr";
+export type Language = "ymid-jp" | "ymid-kr" | "";
 
 export type Instrument =
   | "guitar"

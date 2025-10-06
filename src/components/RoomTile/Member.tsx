@@ -26,7 +26,7 @@ function Member({ member }: MemberProps) {
   return (
     <div className="Member">
       <div className="icon">
-        <Profile icon={member.iconInfo} />
+        <Profile icon={member.avatar} part={member.lastPlayedPart?.part} />
       </div>
       <div className="nickname">
         {!!member.nickname ? member.nickname : "임시 입장 중"}

@@ -12,9 +12,9 @@ interface FlagProps {
 function Flag({ lang }: FlagProps) {
   const style = { height: "2rem", width: "2rem" };
   switch (lang) {
-    case "kr":
+    case "ymid-kr":
       return <KoreaFlag style={style} />;
-    case "jp":
+    case "ymid-jp":
       return <JapanFlag style={style} />;
     default:
       return <OtherFlag style={style} />;

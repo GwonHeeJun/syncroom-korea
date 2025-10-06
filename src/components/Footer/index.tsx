@@ -7,11 +7,11 @@ function Footer() {
       <br />
       SYNCROOM KOREA WEBSITE
       <br />
+      THANKS THE PREVIOUS DEVELOPERS.
+      <br />
       WEB DEVELOPMENT : 늅늅이 | WEB DESIGN : 파나
       <br />
-      © 2021. 늅늅이, 파나 all rights reserved.
-      <br />
-      CONTACT US : kr.syncroom@gmail.com
+      © 2025, OPENSOURCE PROJECT ALL RIGHTS RESERVED.
       <br />
       <br />
     </div>

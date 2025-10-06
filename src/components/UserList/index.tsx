@@ -26,7 +26,7 @@ function UserList() {
       new Map<string, string>(
         data?.rooms
           ?.map(room =>
-            room.members.map(member => [member.nickname, room.id] as const),
+            room.members.map(member => [member.nickname, room.roomId] as const),
           )
           .flat() ?? [],
       ),

@@ -8,20 +8,8 @@ import { authorizationPlugin } from "@/api/plugins/auth";
 export const yamahaApi = makeApi([
   {
     method: "get",
-    path: "/public/room_list",
+    path: "/guest/online",
     alias: "getRooms",
-    parameters: [
-      {
-        name: "realm",
-        type: "Query",
-        schema: z.number().optional(),
-      },
-      {
-        name: "pagesize",
-        type: "Query",
-        schema: z.number().optional(),
-      },
-    ],
     response: z.object({
       rooms: z.array(roomSchema),
     }),
@@ -45,9 +33,10 @@ export const yamahaApi = makeApi([
 ]);
 
 export const yamahaClient = new Zodios(
-  "https://webapi.syncroom.appservice.yamaha.com/comm",
+  "https://webapi.syncroom.appservice.yamaha.com/rooms",
   yamahaApi,
 );
+
 
 yamahaClient.use(authorizationPlugin);
 

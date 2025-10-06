@@ -15,7 +15,7 @@ type RoomGridProps = {
 function RoomGrid({ rooms }: RoomGridProps) {
   const style = {
     tileWidth: 21.5, // rem
-    tileHeight: 26.3, // rem
+    tileHeight: 30.3, // rem
     gridWidth: 86, // %
     gutter: 0.85, // rem
   };
@@ -23,7 +23,7 @@ function RoomGrid({ rooms }: RoomGridProps) {
     itemWidth: style.tileWidth,
     gridWidth: style.gridWidth,
   });
-
+  
   return (
     <div className="RoomGrid">
       <CSSGrid
@@ -37,7 +37,7 @@ function RoomGrid({ rooms }: RoomGridProps) {
         duration={300}
       >
         {rooms.map(room => (
-          <li key={room.id}>
+          <li key={room.roomId}>
             <RoomTile
               room={room}
               size={{

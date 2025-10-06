@@ -26,10 +26,11 @@ function MenuSidebar() {
         <Logo />
       </div>
       <div className="button-container">
-        <button onClick={link.toExternal("https://sionuu.com/syncroomkr/")}>
-          SYNCROOM 한글 패치 다운로드
-        </button>
-        <button onClick={link.toExternal("https://syncroom.yamaha.com/play/")}>
+        <button
+          onClick={link.toExternal(
+            "https://syncroom.yamaha.com/global/v2/play/index_ko.html",
+          )}
+        >
           Original Website
         </button>
       </div>

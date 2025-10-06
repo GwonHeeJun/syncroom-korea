@@ -23,7 +23,7 @@ interface RoomTileProps {
 }
 
 function RoomTile({ room, size }: RoomTileProps) {
-  const isFull: boolean = room.members.length === 5;
+  const isFull: boolean = room.members.length === room.maxMemberCount;
 
   const [subscribeStatus, changeSubscribeStatus] = useNotificationHandler({
     room,
@@ -32,7 +32,7 @@ function RoomTile({ room, size }: RoomTileProps) {
 
   return (
     <div
-      id={room.id.toString()}
+      id={room.roomId.toString()}
       className={classNames(
         "RoomTile",
         room.needPasswd ? "private" : "public",
@@ -41,8 +41,8 @@ function RoomTile({ room, size }: RoomTileProps) {
       style={size}
     >
       <div className="room-header">
-        <Flag lang={room.language} />
-        <span className="room-name">{room.roomName}</span>
+        <Flag lang={room.ownerUser.idProvider || ""} />
+        <span className="room-name">{room.name}</span>
         {room.needPasswd && <Lock />}
       </div>
       <SimpleBar className="room-desc-wrap">
@@ -50,12 +50,12 @@ function RoomTile({ room, size }: RoomTileProps) {
           <p>
             {room.tags.length > 0 ? "#" + room.tags.join("   #") + "\n" : null}
           </p>
-          {room.roomDesc ? room.roomDesc.trim() : "방 설명이 없습니다."}
+          {room.description ? room.description.trim() : "방 설명이 없습니다."}
         </div>
       </SimpleBar>
       <MemberDisplay members={room.members} />
       <Buttons
-        name={room.roomName}
+        name={room.name}
         isPublic={!room.needPasswd}
         isFull={isFull}
         changeSubscription={changeSubscribeStatus}

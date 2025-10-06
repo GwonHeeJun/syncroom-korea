@@ -35,12 +35,12 @@ const useNotificationHandler = ({
     if (subscribeStatus && !isFull) {
       const noti = new Notification("자리 나면 알림 받기", {
         icon: document.URL + "favicon.ico",
-        body: room.roomName,
+        body: room.name,
       });
-      noti.onclick = onClickNotification(room.id);
+      noti.onclick = onClickNotification(room.roomId);
       setSubscribeStatus(false);
     }
-  }, [isFull, subscribeStatus, room.roomName, room.id]);
+  }, [isFull, subscribeStatus, room.name, room.roomId]);
 
   return [subscribeStatus, changeSubscibeStatus];
 };

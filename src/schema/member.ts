@@ -1,29 +1,34 @@
 import { z } from "zod";
-import { iconSchema } from "@/schema/icon";
 
-const generateId = <T extends { userId: string; nsgmMemberId: number }>(
-  member: T,
-) => ({
-  ...member,
-  id: `${member.userId}-${member.nsgmMemberId}`,
-});
+const avatarSchema = z.object({
+  type: z.enum(["url", "preset"]).optional(),
+  preset: z.object({
+    colorCode: z.string(),
+    shapeKey: z.string(),
+  }).optional(),
+  url: z.string().optional(),
+}).optional();
+
+const lastPlayedPartSchema = z.object({
+  part: z.string().optional(),
+  customPart: z.string().optional(),
+}).optional();
 
 const baseMemberSchema = z.object({
   userId: z.string(),
   nickname: z.string(),
-  nsgmMemberId: z.coerce.number(),
-  iconInfo: iconSchema.default({ preset: 0, type: "preset", url: "" }),
-  favorite: z.boolean(),
+  idProvider: z.enum(["ymid-jp", "ymid-kr", ""]).nullable(),
+  avatar: avatarSchema,
+  isBeginner: z.boolean(),
+  lastPlayedPart: lastPlayedPartSchema,
 });
 
-export const memberSchema = baseMemberSchema.transform(generateId);
+export const memberSchema = baseMemberSchema.extend({
+  roomEnterType: z.string(),
+});
 
 export type Member = z.infer<typeof memberSchema>;
 
-export const creatorSchema = baseMemberSchema
-  .extend({
-    idProvider: z.enum(["ymid-jp", "ymid-kr", ""]),
-  })
-  .transform(generateId);
+export const creatorSchema = baseMemberSchema;
 
 export type Creator = z.infer<typeof creatorSchema>;

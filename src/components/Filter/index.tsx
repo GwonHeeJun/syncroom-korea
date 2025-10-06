@@ -50,8 +50,8 @@ function Filter() {
 
 const countryFilter: Option<"language">[] = [
   { key: null, icon: <CountryIcon /> },
-  { key: "kr", icon: <Korea /> },
-  { key: "jp", icon: <Japan /> },
+  { key: "ymid-kr", icon: <Korea /> },
+  { key: "ymid-jp", icon: <Japan /> },
 ];
 
 const instFilter: Option<"instrument">[] = [
