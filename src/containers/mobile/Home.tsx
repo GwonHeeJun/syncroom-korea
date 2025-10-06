@@ -1,4 +1,3 @@
-import React from "react";
 import "./Home.css";
 
 import Logo from "../../resource/img/logo/syncroom.svg?react";

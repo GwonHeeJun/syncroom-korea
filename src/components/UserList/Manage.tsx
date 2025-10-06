@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import useInput from "../../common/hooks/useInput";
 
@@ -14,6 +15,7 @@ interface ManageProps {
 }
 
 function Manage({ isActive, handleActive, isAdd, handleAdd }: ManageProps) {
+  const { t } = useTranslation();
   const addFavorite = useUsersStore(state => state.addFavoriteUser);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -41,7 +43,7 @@ function Manage({ isActive, handleActive, isAdd, handleAdd }: ManageProps) {
 
   return (
     <div className="Manage">
-      <span>즐겨찾기 멤버</span>
+      <span>{t('userList.favorites')}</span>
 
       <button
         className="multi"
@@ -50,7 +52,7 @@ function Manage({ isActive, handleActive, isAdd, handleAdd }: ManageProps) {
           handleAdd(false);
         }}
       >
-        {isActive ? "돌아가기" : "관리"}
+        {isActive ? t('userList.back') : t('userList.manage')}
       </button>
 
       <button className="background return" onClick={() => handleAdd(false)}>
@@ -59,7 +61,7 @@ function Manage({ isActive, handleActive, isAdd, handleAdd }: ManageProps) {
 
       <input
         type="text"
-        placeholder="닉네임을 입력하세요"
+        placeholder={t('userList.placeholder')}
         onKeyPress={onKeyPress}
         ref={inputRef}
         {...input}

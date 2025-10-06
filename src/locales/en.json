@@ -1,0 +1,63 @@
+{
+  "home": {
+    "title": "SYNCROOM KOREA",
+    "filter": {
+      "search": "Search room name"
+    }
+  },
+  "room": {
+    "share": "Share",
+    "join": "Join",
+    "tempJoin": "Temporary Join",
+    "notify": "Notify when available",
+    "notifyCancel": "Cancel notification",
+    "noDescription": "No room description.",
+    "full": "Full"
+  },
+  "modal": {
+    "password": {
+      "placeholder": "Enter password",
+      "cancel": "Cancel",
+      "join": "Join",
+      "tempJoin": "Temporary Join"
+    },
+    "share": {
+      "copy": "Copy",
+      "copied": "Copied to clipboard",
+      "includePassword": "Include password",
+      "passwordPlaceholder": "Enter password"
+    }
+  },
+  "join": {
+    "returnHome": "Return to home",
+    "joining": "Joining {{roomName}} room…",
+    "enterRoom": "Enter {{roomName}} room",
+    "invalidLink": "Invalid join link",
+    "checkLink": "Please check the room join link",
+    "install": "If SYNCROOM is not installed",
+    "installLink": "Install",
+    "joinButton": "Join"
+  },
+  "header": {
+    "menu": "Menu",
+    "settings": "Settings"
+  },
+  "sidebar": {
+    "settings": "Settings",
+    "notice": "Notice"
+  },
+  "userList": {
+    "favorites": "Favorite Members",
+    "manage": "Manage",
+    "back": "Back",
+    "placeholder": "Enter nickname",
+    "online": "Online",
+    "offline": "Offline"
+  },
+  "footer": {
+    "website": "SYNCROOM KOREA WEBSITE",
+    "thanks": "THANKS THE PREVIOUS DEVELOPERS.",
+    "webDev": "WEB DEVELOPMENT : 늅늅이 | WEB DESIGN : 파나",
+    "copyright": "© 2025, OPENSOURCE PROJECT ALL RIGHTS RESERVED."
+  }
+}

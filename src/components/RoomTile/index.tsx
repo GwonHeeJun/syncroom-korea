@@ -1,6 +1,6 @@
-import React from "react";
 import "./style.scss";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 
 import SimpleBar from "simplebar-react";
 
@@ -23,6 +23,7 @@ interface RoomTileProps {
 }
 
 function RoomTile({ room, size }: RoomTileProps) {
+  const { t } = useTranslation();
   const isFull: boolean = room.members.length === room.maxMemberCount;
 
   const [subscribeStatus, changeSubscribeStatus] = useNotificationHandler({
@@ -50,7 +51,7 @@ function RoomTile({ room, size }: RoomTileProps) {
           <p>
             {room.tags.length > 0 ? "#" + room.tags.join("   #") + "\n" : null}
           </p>
-          {room.description ? room.description.trim() : "방 설명이 없습니다."}
+          {room.description ? room.description.trim() : t('room.noDescription')}
         </div>
       </SimpleBar>
       <MemberDisplay members={room.members} />

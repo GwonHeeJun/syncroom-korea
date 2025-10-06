@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 import "./style.scss";
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -18,6 +19,7 @@ import { useUsersStore } from "@/store";
 import { useRooms } from "@/api/hooks";
 
 function UserList() {
+  const { t } = useTranslation();
   const favoriteUsers = useUsersStore(state => state.favorites);
   const { data } = useRooms();
 
@@ -65,7 +67,7 @@ function UserList() {
       />
 
       <SimpleBar className="users">
-        <div className="status-tag">온라인 ― {onlineUsers.length}</div>
+        <div className="status-tag">{t('userList.online')} ― {onlineUsers.length}</div>
 
         <TransitionGroup component="div">
           {onlineUsers.map(userName => (
@@ -79,7 +81,7 @@ function UserList() {
           ))}
         </TransitionGroup>
 
-        <div className="status-tag">오프라인 ― {offlineUsers.length}</div>
+        <div className="status-tag">{t('userList.offline')} ― {offlineUsers.length}</div>
 
         <TransitionGroup component="div">
           {offlineUsers.map(userName => (

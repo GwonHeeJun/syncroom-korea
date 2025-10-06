@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import Logo from "../../resource/img/logo/title.svg?react";
 import MenuIcon from "../../resource/img/icon/menu.svg?react";
@@ -10,6 +11,21 @@ import { SidebarClass } from "../../modules/sidebar/sidebarClass";
 
 function Title() {
   const dispatch = useDispatch();
+  const { i18n } = useTranslation();
+
+  const languages = [
+    { code: 'ko', emoji: '🇰🇷' },
+    { code: 'ja', emoji: '🇯🇵' },
+    { code: 'en', emoji: '🇺🇸' }
+  ];
+
+  const changeLanguage = () => {
+    const currentIndex = languages.findIndex(lang => lang.code === i18n.language);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    i18n.changeLanguage(languages[nextIndex].code);
+  };
+
+  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   return (
     <div className="Title">
@@ -28,12 +44,17 @@ function Title() {
         </div>
       </div>
       <button
+        className="language side-btn"
+        onClick={changeLanguage}
+      >
+        <span className="emoji">{currentLanguage.emoji}</span>
+      </button>
+      <button
         className="settings side-btn"
         onClick={() =>
           dispatch(openSidebar({ sidebarClass: SidebarClass.SETTINGS }))
         }
       >
-        <div>설정</div>
         <SettingsIcon />
       </button>
     </div>

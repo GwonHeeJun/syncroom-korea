@@ -1,4 +1,3 @@
-import React from "react";
 import "./MenuSidebar.scss";
 
 import UserList from "../UserList";

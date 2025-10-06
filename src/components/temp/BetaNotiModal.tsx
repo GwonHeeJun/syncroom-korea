@@ -1,7 +1,7 @@
 // entry point : src\
 //
 
-import React, { useState } from "react";
+import { useState } from "react";
 import "./BetaNotiModal.css";
 
 const TEST_VERSION =

@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import "./PasswordModal.scss";
+import { useTranslation } from "react-i18next";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../modules";
@@ -10,6 +11,7 @@ import useInput from "../../common/hooks/useInput";
 import Lock from "../../resource/img/icon/lock.svg?react";
 
 function PasswordModal() {
+  const { t } = useTranslation();
   const { roomName, roomId, temp } = useSelector((state: RootState) => state.modal);
   const dispatch = useDispatch();
   const { input: password } = useInput("");
@@ -34,20 +36,20 @@ function PasswordModal() {
       </div>
       <input
         type="text"
-        placeholder="비밀번호를 입력하세요"
+        placeholder={t('modal.password.placeholder')}
         onKeyPress={onKeyPress}
         {...password}
       />
       <div className="buttons">
         <button className="abort" onClick={() => dispatch(closeModal())}>
-          <span>취소</span>
+          <span>{t('modal.password.cancel')}</span>
         </button>
         <button
           className="join"
           disabled={password.value.length === 0}
           onClick={onClick}
         >
-          <span>{temp ? "임시 참여" : "참여하기"}</span>
+          <span>{temp ? t('modal.password.tempJoin') : t('modal.password.join')}</span>
         </button>
       </div>
     </div>

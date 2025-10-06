@@ -1,4 +1,3 @@
-import React from "react";
 import "./Notice.scss";
 
 import TabPage from "../components/TabPage";

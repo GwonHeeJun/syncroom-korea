@@ -1,5 +1,5 @@
-import React from "react";
 import "./SettingsSidebar.scss";
+import { useTranslation } from "react-i18next";
 
 import SettingsSidebarButton from "./SettingsSidebarButton";
 
@@ -10,6 +10,7 @@ import Settings from "../../resource/img/icon/settings.svg?react";
 import Arrow from "../../resource/img/icon/right-arrow.svg?react";
 
 function SettingsSidebar() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const close = () => dispatch(closeSidebar());
 
@@ -18,14 +19,14 @@ function SettingsSidebar() {
       <div className="header-container">
         <div>
           <Settings />
-          <span>설정</span>
+          <span>{t('sidebar.settings')}</span>
         </div>
         <button onClick={close}>
           <Arrow fill="#FFFFFF" />
         </button>
       </div>
       <div className="body">
-        <SettingsSidebarButton href="/notice" label="공지사항" />
+        <SettingsSidebarButton href="/notice" label={t('sidebar.notice')} />
       </div>
     </div>
   );

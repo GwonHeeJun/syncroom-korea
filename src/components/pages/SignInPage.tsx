@@ -9,7 +9,7 @@ const signInSchema = z.object({
   password: z.string().min(1),
 });
 
-export const SignInPage: React.FC = () => {
+const SignInPage: React.FC = () => {
   const {
     register,
     handleSubmit,
@@ -44,3 +44,5 @@ export const SignInPage: React.FC = () => {
     </main>
   );
 };
+
+export default SignInPage;

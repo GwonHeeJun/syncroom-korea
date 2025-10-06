@@ -1,4 +1,3 @@
-import React from "react";
 import "./Donate.scss";
 
 import TabPage from "../components/TabPage";

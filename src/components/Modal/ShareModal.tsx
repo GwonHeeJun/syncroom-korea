@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ShareModal.scss";
+import { useTranslation } from "react-i18next";
 
 import { useSelector } from "react-redux";
 import { RootState } from "../../modules";
@@ -14,6 +15,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Link from "../../resource/img/icon/link.svg?react";
 
 function ShareModal() {
+  const { t } = useTranslation();
   const { roomName, roomId, status } = useSelector((state: RootState) => state.modal);
 
   const { input: password } = useInput("");
@@ -49,7 +51,7 @@ function ShareModal() {
             onClick={() => setCopied(true)}
             disabled={isPrivate && checked && password.value.length === 0}
           >
-            <span>복사</span>
+            <span>{t('modal.share.copy')}</span>
           </button>
         </CopyToClipboard>
       </div>
@@ -65,7 +67,7 @@ function ShareModal() {
             fill="none"
           />
         </svg>
-        클립보드에 복사되었습니다
+        {t('modal.share.copied')}
       </div>
       {status === Status.PRIVATE ? (
         <div>
@@ -75,12 +77,12 @@ function ShareModal() {
                 <polyline points="5 10.75 8.5 14.25 16 6" />
               </svg>
             </div>
-            <span className="desc">비밀번호 포함하기</span>
+            <span className="desc">{t('modal.share.includePassword')}</span>
           </div>
           <div className={`password ${checkedClass}`}>
             <input
               type="text"
-              placeholder="비밀번호를 입력하세요"
+              placeholder={t('modal.share.passwordPlaceholder')}
               disabled={!checked}
               {...password}
             />

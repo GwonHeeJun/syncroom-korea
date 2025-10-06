@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import "./style.css";
 
 import Drums from "./drums.svg?react";

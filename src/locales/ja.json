@@ -1,0 +1,63 @@
+{
+  "home": {
+    "title": "SYNCROOM KOREA",
+    "filter": {
+      "search": "ルーム名検索"
+    }
+  },
+  "room": {
+    "share": "共有",
+    "join": "入室する",
+    "tempJoin": "一時入室",
+    "notify": "空きが出たら通知を受け取る",
+    "notifyCancel": "通知キャンセル",
+    "noDescription": "ルーム説明がありません。",
+    "full": "満室"
+  },
+  "modal": {
+    "password": {
+      "placeholder": "パスワードを入力してください",
+      "cancel": "キャンセル",
+      "join": "入室する",
+      "tempJoin": "一時入室"
+    },
+    "share": {
+      "copy": "コピー",
+      "copied": "クリップボードにコピーされました",
+      "includePassword": "パスワードを含める",
+      "passwordPlaceholder": "パスワードを入力してください"
+    }
+  },
+  "join": {
+    "returnHome": "ホームに戻る",
+    "joining": "{{roomName}} ルーム参加中…",
+    "enterRoom": "{{roomName}} ルーム参加",
+    "invalidLink": "無効な参加リンクです",
+    "checkLink": "ルーム参加リンクを確認してください",
+    "install": "SYNCROOMがインストールされていない場合は",
+    "installLink": "インストール",
+    "joinButton": "参加する"
+  },
+  "header": {
+    "menu": "メニュー",
+    "settings": "設定"
+  },
+  "sidebar": {
+    "settings": "設定",
+    "notice": "お知らせ"
+  },
+  "userList": {
+    "favorites": "お気に入りメンバー",
+    "manage": "管理",
+    "back": "戻る",
+    "placeholder": "ニックネームを入力してください",
+    "online": "オンライン",
+    "offline": "オフライン"
+  },
+  "footer": {
+    "website": "SYNCROOM KOREA WEBSITE",
+    "thanks": "THANKS THE PREVIOUS DEVELOPERS.",
+    "webDev": "WEB DEVELOPMENT : 늅늅이 | WEB DESIGN : 파나",
+    "copyright": "© 2025, OPENSOURCE PROJECT ALL RIGHTS RESERVED."
+  }
+}

@@ -1,17 +1,19 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
 import "./style.scss";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <div className="Footer">
       <br />
-      SYNCROOM KOREA WEBSITE
+      {t('footer.website')}
       <br />
-      THANKS THE PREVIOUS DEVELOPERS.
+      {t('footer.thanks')}
       <br />
-      WEB DEVELOPMENT : 늅늅이 | WEB DESIGN : 파나
+      {t('footer.webDev')}
       <br />
-      © 2025, OPENSOURCE PROJECT ALL RIGHTS RESERVED.
+      {t('footer.copyright')}
       <br />
       <br />
     </div>

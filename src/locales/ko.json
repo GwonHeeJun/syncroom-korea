@@ -1,0 +1,63 @@
+{
+  "home": {
+    "title": "SYNCROOM KOREA",
+    "filter": {
+      "search": "방 이름 검색"
+    }
+  },
+  "room": {
+    "share": "공유",
+    "join": "참여하기",
+    "tempJoin": "임시 참여",
+    "notify": "자리 나면 알림 받기",
+    "notifyCancel": "알림 취소",
+    "noDescription": "방 설명이 없습니다.",
+    "full": "만석"
+  },
+  "modal": {
+    "password": {
+      "placeholder": "비밀번호를 입력하세요",
+      "cancel": "취소",
+      "join": "참여하기",
+      "tempJoin": "임시 참여"
+    },
+    "share": {
+      "copy": "복사",
+      "copied": "클립보드에 복사되었습니다",
+      "includePassword": "비밀번호 포함하기",
+      "passwordPlaceholder": "비밀번호를 입력하세요"
+    }
+  },
+  "join": {
+    "returnHome": "홈으로 돌아가기",
+    "joining": "{{roomName}} 방 참가 중…",
+    "enterRoom": "{{roomName}} 방 참가",
+    "invalidLink": "잘못된 참가 링크입니다",
+    "checkLink": "방 참가 링크를 확인해 주세요",
+    "install": "싱크룸이 설치되어 있지 않다면",
+    "installLink": "설치하기",
+    "joinButton": "참가하기"
+  },
+  "header": {
+    "menu": "메뉴",
+    "settings": "설정"
+  },
+  "sidebar": {
+    "settings": "설정",
+    "notice": "공지사항"
+  },
+  "userList": {
+    "favorites": "즐겨찾기 멤버",
+    "manage": "관리",
+    "back": "돌아가기",
+    "placeholder": "닉네임을 입력하세요",
+    "online": "온라인",
+    "offline": "오프라인"
+  },
+  "footer": {
+    "website": "SYNCROOM KOREA WEBSITE",
+    "thanks": "THANKS THE PREVIOUS DEVELOPERS.",
+    "webDev": "WEB DEVELOPMENT : 늅늅이 | WEB DESIGN : 파나",
+    "copyright": "© 2025, OPENSOURCE PROJECT ALL RIGHTS RESERVED."
+  }
+}

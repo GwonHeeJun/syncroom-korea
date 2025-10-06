@@ -1,6 +1,6 @@
-import React from "react";
 import "./Join.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { decodeShareLink } from "../common/util/shareLink";
 import { joinRoom } from "../common/util/joinRoom";
@@ -19,11 +19,13 @@ interface JoinInfoProps {
 }
 
 function Join({ location: { search } }: JoinProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="Join">
       <Link to="/" className="return">
         <Return />
-        홈으로 돌아가기
+        {t('join.returnHome')}
       </Link>
       <div className="body">
         <SyncroomLogo />
@@ -34,16 +36,17 @@ function Join({ location: { search } }: JoinProps) {
 }
 
 function JoinInfo({ search }: JoinInfoProps) {
+  const { t } = useTranslation();
   const { input: inputPassword } = useInput("");
   const Install: JSX.Element = (
     <div className="install">
-      싱크룸이 설치되어 있지 않다면{" "}
+      {t('join.install')}{" "}
       <a
         href="https://syncroom.yamaha.com/play/dl/"
         target="_blank"
         rel="noreferrer"
       >
-        설치하기
+        {t('join.installLink')}
       </a>
     </div>
   );
@@ -55,10 +58,10 @@ function JoinInfo({ search }: JoinInfoProps) {
       joinRoom(roomName, password, false, roomId);
       return (
         <>
-          <div className="title">{roomName} 방 참가 중…</div>
+          <div className="title">{t('join.joining', { roomName })}</div>
           <div className="prompt">
             <button onClick={() => joinRoom(roomName, password, false, roomId)}>
-              <span>참가하기</span>
+              <span>{t('join.joinButton')}</span>
             </button>
           </div>
           {Install}
@@ -69,12 +72,12 @@ function JoinInfo({ search }: JoinInfoProps) {
         <>
           <div className="title">
             <Lock fill="#000000" />
-            {roomName} 방 참가
+            {t('join.enterRoom', { roomName })}
           </div>
           <div className="prompt">
             <input
               type="text"
-              placeholder="비밀번호를 입력하세요"
+              placeholder={t('modal.password.placeholder')}
               {...inputPassword}
               onKeyPress={e => {
                 if (e.key === "Enter")
@@ -85,7 +88,7 @@ function JoinInfo({ search }: JoinInfoProps) {
               className="password"
               onClick={() => joinRoom(roomName, inputPassword.value, false, roomId)}
             >
-              <span>참가하기</span>
+              <span>{t('join.joinButton')}</span>
             </button>
           </div>
           {Install}
@@ -96,8 +99,8 @@ function JoinInfo({ search }: JoinInfoProps) {
     console.log(e);
     return (
       <>
-        <div className="title">잘못된 참가 링크입니다</div>
-        <div className="desc">방 참가 링크를 확인해 주세요</div>
+        <div className="title">{t('join.invalidLink')}</div>
+        <div className="desc">{t('join.checkLink')}</div>
       </>
     );
   }

@@ -1,5 +1,3 @@
-import React from "react";
-
 import useLink from "../../common/hooks/useLink";
 
 import { closeSidebar } from "../../modules/sidebar";

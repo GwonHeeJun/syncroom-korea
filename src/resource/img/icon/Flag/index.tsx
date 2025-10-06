@@ -1,5 +1,3 @@
-import React from "react";
-
 import KoreaFlag from "./korea.svg?react";
 import JapanFlag from "./japan.svg?react";
 import OtherFlag from "./other.svg?react";

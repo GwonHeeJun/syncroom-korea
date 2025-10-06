@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 
 import { joinRoom } from "../../common/util/joinRoom";
 
@@ -28,6 +29,7 @@ function Buttons({
   changeSubscription,
   isSubscribed,
 }: ButtonsProps) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const join = isPublic
     ? (temp: boolean) => {
@@ -58,7 +60,7 @@ function Buttons({
     <div className="Buttons">
       <button className="shareBtn" onClick={share}>
         <Share />
-        <span>공유</span>
+        <span>{t('room.share')}</span>
       </button>
       {isFull ? (
         <div>
@@ -67,16 +69,16 @@ function Buttons({
             onClick={changeSubscription}
           >
             <Notification />
-            <span>{isSubscribed ? "알림 취소" : "자리 나면 알림 받기"}</span>
+            <span>{isSubscribed ? t('room.notifyCancel') : t('room.notify')}</span>
           </button>
         </div>
       ) : (
         <div>
           <button onClick={() => join(true)}>
-            <span>임시 참여</span>
+            <span>{t('room.tempJoin')}</span>
           </button>
           <button className="joinBtn" onClick={() => join(false)}>
-            <span>참여하기</span>
+            <span>{t('room.join')}</span>
           </button>
         </div>
       )}
